@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap');
+$colors: (
+    gradient: ( hsl(293, 100%, 63%), hsl(264, 100%, 61%)),
+    white: hsl(0, 0, 100%),
+    bg-color: hsl(270, 20%, 96%),
+    para: hsl(270, 7%, 64%),
+    chatlft: hsl(276, 55%, 52%),
+    chatrght: hsl(271, 15%, 43%),
+    placeholder: hsl(206, 6%, 79%),
+    main: hsl(271, 36%, 24%),
+    top: hsl(276, 100%, 81%),
+    border: hsl(289, 100%, 72%)
+);
+
+@function color($color){
+    @return map-get($colors, $color);
+}
+*{
+    box-sizing: border-box;
+}
+html, body{
+    background-color: color(bg-color);
+    font-family: 'Rubik', sans-serif;
+}
+
+html, body, div, section, article, main, header, footer, aside, p, a, h1, h2, h3, h4, h5, h6, img{
+    margin: 0;
+    padding: 0;
+}
