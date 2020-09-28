@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@400;600&display=swap');
+
+$colors : (
+    StrongCyan: hsl(171, 66%, 44%),
+    LightBlue: hsl(233, 100%, 69%),
+    
+    DarkGrayishBlue: hsl(210, 10%, 33%),
+    GrayishBlue: hsl(201, 11%, 66%),
+
+    white: hsl(0, 0, 100%),
+    svgs: #4C545C,
+
+    facebook: #3b5998,
+    twitter: #1da1f2,
+    instagram: #e1306c
+);
+@mixin hover($color, $condition : false) {
+    background-color: color($color);
+    transition: .3s ease;
+    @if $condition == true {
+        &:hover{
+            background-color: lighten(color($color), 5%);
+        }
+    }
+}
+@mixin button-transition{
+    &:hover{
+        transform: translateY(5px);
+        box-shadow: 0 0 0 0 white;
+    }
+}
+@function color($color){
+    @return map-get($colors, $color);
+};
+
+*{
+    box-sizing: border-box;
+}
+html, body, div, section, article, main, aside, header, footer, img, h1, h2, h3, h4, h5, h6, a, p, span, svg{
+    margin: 0;
+    padding: 0;
+}
+
+html, body{
+    font-family: 'Bai Jamjuree', sans-serif;
+}
+a{
+    text-decoration: none;
+}
+p{
+    color: color(GrayishBlue) !important;
+}
+%btn{
+    padding: 1rem 2.5rem;
+    border-radius: 3rem;
+    transition: .3s ease;
+    box-shadow: 0 2px 15px #bfbfbf;
+    @include button-transition;
+}
+
+.bg-cyan{
+    @include hover(StrongCyan, true);
+    color: color(white);
+}
+.bg-l-blue{
+    @include hover(LightBlue, true);
+    color: color(white);
+}
+
+
+
+.smaller, .larger, .h1, .h2, .h3, .h4, .h5, .h6{
+    color: color(DarkGrayishBlue);
+}
+
+.smaller{
+    font-size: .95rem;
+}
+
+.larger{
+    font-size: 1.15rem;
+}
