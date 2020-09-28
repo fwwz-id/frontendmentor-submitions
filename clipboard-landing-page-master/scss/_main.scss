@@ -4,7 +4,6 @@
     width: 100%;
     height: 100%;
     header{
-        min-height: calc(100vh - 10px);
         width: 100%;
         display: flex;
         align-items: center;
@@ -13,6 +12,7 @@
         text-align: center;
         background: url('../images/bg-header-mobile.png')center no-repeat;
         background-size: cover;
+        padding: 5rem 1rem;
         .hero{
             display: flex;
             flex-direction: column;
@@ -162,13 +162,14 @@
         header{
             background-image: url(../images/bg-header-desktop.png);
             background-size: cover;
+            padding: 7rem 3rem 0;
             .logo{
                 img{
                     padding-bottom: 1.5rem;
                 }
             }.hero{
                 max-width: 100%;
-                h1{
+                .h1{
                     font-size: 3rem;
                 }
                 .larger{
@@ -176,6 +177,7 @@
                 }
             }
         }.section-1{
+            margin-top: 7rem;
             div:first-child {
                 p{
                     line-height: 2;
@@ -211,6 +213,12 @@
                     max-width: 50%;
                     margin: .85rem 2.5rem;
                     padding: 1rem;
+                    transition: .3s ease;
+                    transition-property: filter;
+                    &:hover{
+                        filter: drop-shadow(1px 1px 1px #c4c4c4) contrast(0);
+                        cursor: pointer;
+                    }
                 }
             }
         }.section-4{
@@ -257,7 +265,7 @@
         }
     }
     section{
-        h1{
+        .h1{
             font-size: 2.5rem;
         }
     }
