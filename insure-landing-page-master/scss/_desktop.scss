@@ -1,0 +1,60 @@
+@media screen and (min-width: 1110px){
+    header{
+        .intro{
+            height: 40rem;
+            .container{
+                display: flex;
+                flex-direction: row-reverse;
+                margin: 0 auto;
+                .img-desktop{
+                    display: flex;
+                    margin-top: 5rem;
+                    margin-right: auto;
+                    position: static;
+                    .img-desktop-wrap{
+                        display: flex;
+                        z-index: 1023;
+                        .img-hover{
+                            height: 100%;
+                            object-fit: contain;
+                            filter: blur(0);
+                        }
+                    }
+                }
+                .intro-txt{
+                    flex: 0 0 50%;
+                    position: static;
+                    z-index: 2;
+                    
+                }
+            }
+        }
+    }
+
+    .we-different{
+        margin-top: 9.5rem;
+        .container{
+            hr{margin-top: 5rem; margin-left: 0;}
+            text-align: left;
+            .row{
+                width: 100%;
+                display: flex;
+                .el{
+                    padding: 0 0 0 1rem;
+                }
+            }
+        }
+    }
+
+
+    
+}
+
+@media screen and (min-width: 1200px){
+    header{
+        .intro{
+            height: 36.5rem;
+        }
+    }
+
+}

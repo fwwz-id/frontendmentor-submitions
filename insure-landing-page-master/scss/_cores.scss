@@ -1,0 +1,119 @@
+
+$colors: (
+    DarkViolet: hsl(256, 26%, 20%),
+    GrayishBlue: hsl(216, 30%, 68%),
+
+    //Neutral
+    VeryDarkViolet: hsl(270, 9%, 17%),
+    DarkGrayishViolet: hsl(273, 4%, 51%),
+    VeryLightGray: hsl(0, 0%, 98%),
+    
+    facebook: #3b5998,
+    instagram: #e1306c,
+    twitter: #1da1f2,
+    pinterest: #e60023
+
+);
+
+@function color($color){
+    @return map-get($colors, $color);
+};
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Karla:wght@400;700&display=swap');
+
+*{
+    box-sizing: border-box;
+}
+
+html, body, div, section, article, main, aside, header, footer, span, img, h1, h2, h3, h4, h5, h6, a, p, svg, i{
+    margin: 0;
+    padding: 0;
+}
+
+html, body{
+    font-family: 'Karla', sans-serif;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6{
+    font-family: 'DM Serif Display', serif;
+    font-weight: 400;
+}
+a{
+    text-decoration: none;
+}
+a, p{
+    color: color(VeryLightGray);
+}
+.container{
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.button{
+    padding: 1rem 1.5rem;
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
+    &.button-outline-black, &.button-outline-white{
+        transition: .5s ease;
+        &::before{
+            content: '';
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: block;
+            position: absolute;
+            transition: .6s ease;
+            z-index: -1;
+            clip-path: circle(0% at -10% 50%);
+        }
+        &:hover{
+            &::before{
+                clip-path: circle(200% at -10% 50%);
+            }
+        }
+    }
+    &.button-outline-white{
+        color: color(VeryLightGray);
+        border: 1px solid color(VeryLightGray);
+        &::before{
+            background-color: color(VeryLightGray);
+        }
+        &:hover{
+            color: color(VeryDarkViolet);
+        }
+    }
+    &.button-outline-black{
+        color: color(VeryDarkViolet);
+        border: 1px solid color(VeryDarkViolet);
+        &::before{
+            background-color: color(VeryDarkViolet);
+        }
+        &:hover{
+            color: color(VeryLightGray);
+        }
+    }
+
+}
+
+.nine-rem{
+    width: 9rem;
+}
+
+
+
+.heading{
+    font-size: 3rem;
+}
+
+@media screen and (min-width: 768px){
+    .fs-1{
+        font-size: 4.375rem;
+    }
+}
+
+
