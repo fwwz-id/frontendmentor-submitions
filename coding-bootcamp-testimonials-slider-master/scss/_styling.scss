@@ -1,0 +1,127 @@
+
+.container{
+    max-height: 800px;
+    text-align: center;
+    overflow: hidden;
+    .row{
+        display: flex;
+        flex-direction: column;
+
+        .display{
+            display: none;
+            &.active{
+                display: flex;
+                flex-direction: column-reverse;
+            }
+            .quote{
+                padding: 0 2rem;
+                background: url(../images/pattern-quotes.svg) top center no-repeat;
+                @include animateFromLeft;
+                blockquote{
+                    margin-top: 2rem;
+                    font-size: 18px;
+                }
+                .profile-name{margin-top: 1rem;}
+                .profile-position{padding-bottom: 1.5rem;}
+            }
+            .img-wrapper{
+                display: block;
+                background: url(../images/pattern-bg.svg) center no-repeat;
+                background-size: contain;
+                padding-top: 3rem;
+                position: relative;
+                @include animateFromRight;
+                img{
+                    max-width: 350px; 
+                    margin: 0 auto;
+                }
+
+            }
+        }
+
+        .button{
+            position: absolute;
+            top: 23.5rem;
+            left: 50%; 
+            transform: translateX(-50%);
+            width: 90px;
+            display: flex;
+            justify-content: space-around;
+            background-color: white;
+            padding: 0.45rem 0.25rem;
+            border-radius: 3rem;
+            box-shadow: 0 5px 1.5rem 0 #919191;
+            z-index: 1023;
+            .left, .right{
+                cursor: pointer;
+                svg{
+                    transition: .3s ease;
+                    stroke: #8585AC;
+                }
+                &:hover{
+                    svg{
+                        stroke: color(DarkBlue);
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 576px){
+    .quote{
+        blockquote{
+            max-width: 550px;
+            margin: 2rem auto 0;
+        }
+    }
+}
+
+@media (min-width: 1110px){
+    .container{
+        height: 800px;
+        display: grid;
+        place-items: center;
+        text-align: left;
+        .row{
+            .display{
+                &.active{
+                    flex-direction: row;
+                    align-items: center;
+                    }
+                .quote{
+                    position: relative;
+                    background-position: 20% top;
+                    z-index: 2;
+                    blockquote{
+                        max-width: 790.5px;
+                        font-size: 31px;
+                        letter-spacing: 1px;
+                    }
+                    .profile-name{display: inline-block;}
+                }
+
+                .img-wrapper{
+                    padding: 3rem;
+                    margin-left: -10rem;
+                    flex: 0 0 50%;
+                    background-size: cover;
+                    img{
+                        max-width: 540px;
+                        width: 540px;
+                        height: 540px;
+                    }
+                }
+            }
+
+            
+            .button{
+                width: 100px;
+                left: 65%;
+                top: 40rem;
+                padding: 1rem 0.15rem;
+            }
+        }
+    }
+}
+

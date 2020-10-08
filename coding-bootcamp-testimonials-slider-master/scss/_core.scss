@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap');
+
+
+
+$colors: (
+    DarkBlue: hsl(240, 38%, 20%),
+    GrayishBlue: hsl(240, 18%, 77%)
+);
+
+@function color($color){
+    @return map-get($colors, $color);
+};
+
+html, body, div, section, header, article, main, img, span, a, p, h1, h2, h3, h4, h5, h6 , blockquote{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html, body{
+    font-family: 'Inter', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6{
+    color: color(DarkBlue);
+}
+
+a, p, blockquote{
+    font-weight: 300;
+    color: color(DarkBlue);
+}
+
+.profile-position{
+    font-weight: 500;
+    color: color(GrayishBlue);
+}
+
+@keyframes fromRight{
+    from{
+        transform: translateX(50rem);
+        opacity: 0;
+    }to{
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+@keyframes fromLeft{
+    from{
+        transform: translateX(-50rem);
+        opacity: 0;
+    }to{
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+@mixin animateFromRight {
+    animation: fromRight 1s ease;
+}
+@mixin animateFromLeft {
+    animation: fromLeft 1s ease;
+}
