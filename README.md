@@ -6,3 +6,4 @@ This is My submition from [frontendmentor](https://frontendmentor.io) challenges
 - [Clipboard Landing Page](https://clipboardlandingpage-nine.vercel.app/)
 - [Insure Landing Page](https://insurelandingpage.vercel.app/)
 - [Coding Bootcamp Testimonial](https://codingbootcampslider.netlify.app)
+- [Proifle Card Component](https://hardcore-goodall-ebc5d3.netlify.app)
