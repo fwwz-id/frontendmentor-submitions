@@ -1,0 +1,343 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+v2.0 | 20110126
+License: none (public domain)
+*/
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap");
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  font-size: 18px;
+  line-height: 1;
+  overflow: hidden;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+input {
+  width: 100%;
+  border: none;
+  outline: none;
+  background-color: white;
+  font-family: inherit;
+}
+
+a {
+  color: #d2d3db;
+  text-decoration: none;
+}
+
+body {
+  font-family: 'Josefin Sans', sans-serif;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+body.mood-light .container .background-header {
+  background-image: url("../images/bg-mobile-light.jpg");
+}
+
+@media (min-width: 768px) {
+  body.mood-light .container .background-header {
+    background-image: url("../images/bg-desktop-light.jpg");
+  }
+}
+
+body.mood-light .todo-filter {
+  background-color: #fafafa;
+}
+
+body.mood-light .todo-filter a {
+  color: #9394a5;
+}
+
+body.mood-light .todo-filter a:hover {
+  color: #26283b;
+}
+
+body.mood-dark {
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  background-color: #161722;
+}
+
+body.mood-dark .container .background-header {
+  background-image: url("../images/bg-mobile-light.jpg");
+}
+
+@media (min-width: 768px) {
+  body.mood-dark .container .background-header {
+    background-image: url("../images/bg-desktop-light.jpg");
+  }
+}
+
+body.mood-dark .list {
+  background-color: #25273c;
+}
+
+body.mood-dark .todo-filter {
+  background-color: #25273c;
+}
+
+body.mood-dark .todo-filter a {
+  color: #484b6a;
+}
+
+body.mood-dark .todo-filter a:hover {
+  color: #fafafa;
+}
+
+body .container {
+  position: relative;
+  width: 100%;
+}
+
+body .container .background-header {
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 200px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+body .container .header {
+  position: relative;
+  padding: 2.5rem 0;
+  margin: auto;
+  width: 85%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+body .container .header .app-title {
+  letter-spacing: 10px;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 1.75rem;
+  cursor: pointer;
+}
+
+body .container .header a {
+  background-image: url("../images/icon-moon.svg");
+  background-repeat: no-repeat;
+  background-position: right;
+  width: 100%;
+  height: 28px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+body .container .wrapper {
+  position: relative;
+  width: 85%;
+  margin: auto;
+}
+
+body .container .wrapper .form {
+  position: relative;
+  background-color: white;
+  height: 2.35rem;
+  border-radius: 5px;
+  padding: 1.25rem;
+}
+
+body .container .wrapper .form .circle {
+  border: 1px solid #d2d3db;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 0.85rem;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+body .container .wrapper .form form {
+  position: relative;
+  height: 100%;
+}
+
+body .container .wrapper .form form input {
+  position: absolute;
+  font-size: 0.8rem;
+  background: none;
+  top: 50%;
+  left: 1.5rem;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+body .container .wrapper .form form input::-webkit-input-placeholder {
+  color: #9394a5;
+}
+
+body .container .wrapper .form form input:-ms-input-placeholder {
+  color: #9394a5;
+}
+
+body .container .wrapper .form form input::-ms-input-placeholder {
+  color: #9394a5;
+}
+
+body .container .wrapper .form form input::placeholder {
+  color: #9394a5;
+}
+
+body .container .wrapper .todo-list {
+  margin-top: 1rem;
+  width: 100%;
+  background: white;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 0.35px 1.5rem -15px #26283b;
+          box-shadow: 0 0.35px 1.5rem -15px #26283b;
+}
+
+body .container .wrapper .todo-list .list {
+  font-size: 0.7rem;
+}
+
+body .container .wrapper .todo-list .list .list-item {
+  padding: 1.15rem 1.25rem;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-bottom: 1px solid #e4e5f1;
+  cursor: -webkit-grab;
+  cursor: grab;
+  color: #484b6a;
+}
+
+body .container .wrapper .todo-list .list .list-item::before {
+  content: '';
+  border-radius: 50%;
+  border: 1px solid #d2d3db;
+  width: 16px;
+  height: 16px;
+  margin-right: 1rem;
+  -webkit-transition: 0.35s;
+  transition: 0.35s;
+  cursor: pointer;
+}
+
+body .container .wrapper .todo-list .list .list-item::after {
+  content: url("../images/icon-cross.svg");
+  margin-left: auto;
+  height: 1rem;
+  -webkit-transform: scale(0.65);
+          transform: scale(0.65);
+  cursor: pointer;
+}
+
+body .container .wrapper .todo-list .list .list-item:hover::before {
+  border-width: 1px;
+  border-color: #c058f3;
+}
+
+body .container .wrapper .todo-list .list .list-item.completed {
+  text-decoration: line-through;
+  color: #d2d3db;
+}
+
+body .container .wrapper .todo-list .list .list-item.completed:hover::before {
+  border: 1px solid #d2d3db;
+}
+
+body .container .wrapper .todo-list .list .list-item.completed::before {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#57ddff), to(#c058f3));
+  background-image: linear-gradient(#57ddff, #c058f3);
+}
+
+body .container .wrapper .todo-list .list-desc {
+  font-size: 0.75rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 1rem;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+body .container .wrapper .todo-filter {
+  font-size: 0.85rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 2rem;
+  border-radius: 5px;
+  padding: 0.5rem 0;
+  -webkit-box-shadow: 0 0.15px 0.5rem -5px #26283b;
+          box-shadow: 0 0.15px 0.5rem -5px #26283b;
+}
+
+body .container .wrapper .todo-filter a {
+  font-weight: 700;
+  padding: 0.5rem;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+body .container .wrapper .todo-filter a.active {
+  color: #3a7bfd;
+}
+/*# sourceMappingURL=main.css.map */
