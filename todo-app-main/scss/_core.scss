@@ -1,139 +1,221 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 
-v2.0 | 20110126
-License: none (public domain)
-*/
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap");
 
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap');
+$keyframes: (
+	"mobile": 375px,
+	"tablet": 768px,
+	"laptop": 1024px,
+	"desktop": 1440px,
+);
 
+$colors: (
+	neutral: (
+		"bright-blue": hsl(220, 98%, 61%),
+		"checked": linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%)),
+	),
+	light: (
+		"very-light-gray": hsl(0, 0%, 98%),
+		"very-light-grayish-blue": hsl(236, 33%, 92%),
+		"light-grayish-blue": hsl(233, 11%, 84%),
+		"dark-grayish-blue": hsl(236, 9%, 61%),
+		"very-dark-grayish-blue": hsl(235, 19%, 35%),
+	),
+	dark: (
+		"very-dark-blue": hsl(235, 21%, 11%),
+		"very-dark-desaturated-blue": hsl(235, 24%, 19%),
+		"light-grayish-blue": hsl(234, 39%, 85%),
+		"light-grayish-blue-hover": hsl(236, 33%, 92%),
+		"dark-grayish-blue": hsl(234, 11%, 52%),
+		"very-dark-grayish-blue": hsl(233, 14%, 35%),
+	),
+);
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+$themes: (
+	light: (
+		bg-mobile: url("../images/bg-mobile-light.jpg"),
+		bg-desktop: url("../images/bg-desktop-light.jpg"),
+		mood-icon: url("../images/icon-moon.svg"),
+	),
+	dark: (
+		bg-mobile: url("../images/bg-mobile-dark.jpg"),
+		bg-desktop: url("../images/bg-desktop-dark.jpg"),
+		mood-icon: url("../images/icon-sun.svg"),
+	),
+);
+
+@mixin tablet {
+	@media (min-width: map-get($keyframes, tablet)) {
+		@content;
+	}
+}
+
+@mixin s-laptop {
+	@media (min-width: map-get($keyframes, laptop)) {
+		@content;
+	}
+}
+
+@function get-object-prop($obj: $themes, $obj-name: light, $obj-key) {
+	@return map-get(map-get($obj, $obj-name), $obj-key);
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
 	margin: 0;
 	padding: 0;
 	border: 0;
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
-    box-sizing: border-box;
+	box-sizing: border-box;
 }
+
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
 	display: block;
 }
+
 body {
-    font-size: 18px;
+	font-family: "Josefin Sans", sans-serif;
+	font-size: 18px;
 	line-height: 1;
-    overflow: hidden;
 }
-ol, ul {
+
+ol,
+ul {
 	list-style: none;
 }
-blockquote, q {
+
+blockquote,
+q {
 	quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+	content: "";
 	content: none;
 }
+
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
 
-input{
+input {
 	width: 100%;
 	border: none;
 	outline: none;
-	background-color: white;
 	font-family: inherit;
 }
 
-a{
-	color: hsl(233, 11%, 84%);
+a {
 	text-decoration: none;
 }
 
-// variables and another 
+.active {
+	color: get-object-prop($colors, neutral, bright-blue) !important;
+}
 
-// .text-white{
-//     color: white;
-// }
+::-webkit-scrollbar {
+	width: 5px;
+	height: 5px;
+}
 
-// .text-light{
-// 	color: hsl(236, 9%, 61%);
-// }
+::-webkit-scrollbar-thumb {
+	background-image: get-object-prop($colors, neutral, checked);
+}
 
-// .text-primary-blue, .active{
-// 	color: hsl(220, 98%, 61%);
-// }
-
-$responsive: (
-	'mobile': 375px,
-	'mobile-m': 425px,
-	'tablet': 768px,
-	'laptop': 1024px,
-	'desktop': 1440px
-);
-
-$color: (
-	light: (
-		'very-light' :	hsl(236, 9%, 61%),
-		'very-light-grayish-blue' : hsl(236, 33%, 92%), 
-		'light-grayish-blue': hsl(233, 11%, 84%),
-		'dark-grayish-blue': hsl(236, 9%, 61%),
-		'very-dark-grayish-blue': hsl(235, 19%, 35%)
-	),
-	dark: (
-		'very-dark-blue': hsl(235, 21%, 11%),
-		'very-dark-desaturated-blue': hsl(235, 24%, 19%),
-		'light-grayish-blue': hsl(234, 39%, 85%),
-		'light-grayish-blue-hover': hsl(236, 33%, 92%),
-		'dark-grayish-blue': hsl(234, 11%, 52%),
-		'very-dark-grayish-blue': hsl(233, 14%, 35%)
-	)
-);
-
-$themes: (
-        light: (
-			bg-mobile: url("../images/bg-mobile-light.jpg"),
-			bg-desktop: url("../images/bg-desktop-light.jpg")
-			// bg: $bg--light
-        ),
-        dark: (
-			bg-mobile: url("../images/bg-mobile-dark.jpg"),
-			bg-desktop: url("../images/bg-desktop-dark.jpg")
-        ),
-);
-
-@mixin tablet{
-	@media(min-width: map-get($responsive, tablet)){
-		@content;		
-	};
-};
-
-// @mixin desktop{
-// 	@media(min-width: map-get($responsive, desktop)){
-// 		@content;			
-// 	}
-// }
-
-@mixin mood($mood-light: true){
-	background-image: map-get(map-get($themes, light), bg-mobile);
-	@include tablet{
-		background-image: map-get(map-get($themes, light), bg-desktop);
-	}
-	
-};
+::-webkit-scrollbar-track {
+	background-color: none;
+}

@@ -1,0 +1,439 @@
+@use './core'as *;
+
+body {
+	background-color: get-object-prop($colors, light, very-light-gray);
+
+	// default theme
+	&.mood-light {
+		background-color: white;
+
+		.background-header {
+			background-image: get-object-prop($themes, light, bg-mobile);
+
+			@include tablet {
+				background-image: get-object-prop($themes, light, bg-desktop);
+			}
+		}
+
+		.mood-changer {
+			background-image: get-object-prop($themes, light, mood-icon);
+		}
+
+		.container {
+			.form,
+			.todo-list,
+			.mobile.todo-filter {
+				background-color: white;
+			}
+
+			.todo-list {
+				.list {
+					border-bottom: 1px solid
+						get-object-prop($colors, light, very-light-grayish-blue);
+
+					.circle {
+						border: 1px solid
+							get-object-prop($colors, light, light-grayish-blue);
+					}
+
+					.list-item {
+						color: get-object-prop($colors, light, very-dark-grayish-blue);
+					}
+
+					&[data-status="inactive"] {
+						color: get-object-prop($colors, light, light-grayish-blue);
+
+						.list-item {
+							color: get-object-prop($colors, light, very-light-grayish-blue);
+						}
+					}
+				}
+			}
+		}
+
+		.text-light {
+			color: get-object-prop($colors, light, dark-grayish-blue);
+		}
+	}
+
+	//dark theme
+	&.mood-dark {
+		background-color: get-object-prop($colors, dark, very-dark-blue);
+		transition: 0.5s;
+
+		.background-header {
+			background-image: get-object-prop($themes, dark, bg-mobile);
+
+			@include tablet {
+				background-image: get-object-prop($themes, dark, bg-desktop);
+			}
+		}
+
+		.mood-changer {
+			background-image: get-object-prop($themes, dark, mood-icon);
+		}
+
+		.container {
+			.wrapper {
+				.form,
+				.todo-list,
+				.mobile.todo-filter {
+					background-color: get-object-prop(
+						$colors,
+						dark,
+						very-dark-desaturated-blue
+					);
+				}
+
+				.form {
+					input {
+						color: get-object-prop($colors, dark, light-grayish-blue);
+					}
+				}
+
+				.todo-list {
+					.list {
+						border-bottom: 1px solid
+							get-object-prop($colors, dark, dark-grayish-blue);
+
+						.circle {
+							border: 1px solid
+								get-object-prop($colors, dark, very-dark-grayish-blue);
+						}
+
+						.list-item {
+							color: get-object-prop($colors, dark, light-grayish-blue);
+						}
+
+						&[data-status="inactive"] {
+							color: get-object-prop($colors, dark, very-dark-grayish-blue);
+
+							.list-item {
+								color: get-object-prop($colors, light, very-dark-grayish-blue);
+							}
+						}
+					}
+				}
+			}
+		}
+
+		.text-light {
+			color: get-object-prop($colors, dark, very-dark-grayish-blue);
+		}
+	}
+
+	.container {
+		position: relative;
+
+		.background-header {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 200px;
+			background-size: cover;
+			background-repeat: no-repeat;
+		}
+
+		// header
+		.header {
+			position: relative;
+			padding: 2.5rem 0;
+			margin: auto;
+			width: 85%;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+
+			.app-title {
+				letter-spacing: 10px;
+				text-transform: uppercase;
+				font-weight: 700;
+				font-size: 1.75rem;
+				color: get-object-prop($colors, light, very-light-gray);
+			}
+
+			.mood-changer {
+				background-repeat: no-repeat;
+				width: 28px;
+				height: 28px;
+			}
+		}
+
+		// responsive
+		@include s-laptop {
+			.background-header {
+				height: 300px;
+			}
+
+			.header {
+				width: 40%;
+				padding: 4.5rem 1rem 2.5rem;
+
+				.app-title {
+					font-size: 2.85rem;
+				}
+			}
+		}
+	}
+
+	// header end
+
+	// wrapper
+	.wrapper {
+		position: relative;
+		width: 85%;
+		margin: auto;
+
+		.form {
+			position: relative;
+			height: 2.35rem;
+			border-radius: 5px;
+			padding: 1.45rem;
+
+			.circle {
+				border-radius: 50%;
+				width: 20px;
+				height: 20px;
+				position: absolute;
+				z-index: 2;
+				top: 50%;
+				left: 0.85rem;
+				transform: translateY(-50%);
+			}
+
+			form {
+				position: relative;
+				height: 100%;
+
+				input {
+					position: absolute;
+					font-size: 0.8rem;
+					background: transparent;
+					top: 50%;
+					left: 1.5rem;
+					transform: translateY(-50%);
+					width: calc(100% - 1.5rem);
+
+					&::placeholder {
+						color: get-object-prop($colors, light, dark-grayish-blue);
+					}
+				}
+			}
+		}
+
+		// tdo-list
+		.todo-list {
+			margin-top: 1rem;
+			width: 100%;
+			border-radius: 5px;
+			box-shadow: 0 0.35px 1.5rem -15px #26283b;
+
+			// sortable
+			.sortable-field {
+				position: relative;
+
+				.list {
+					display: flex;
+					align-items: center;
+					position: relative;
+					font-size: 0.7rem;
+					padding: 0.85rem;
+
+					.circle {
+						position: relative;
+						height: 20px;
+						width: 20px;
+						margin: 0 0 0 0.5rem;
+						border-radius: 50%;
+						cursor: pointer;
+
+						&:hover {
+							border-color: hsl(280, 87%, 65%);
+						}
+					}
+
+					.list-item {
+						padding: 0.5rem;
+						flex-grow: 2;
+						cursor: pointer;
+					}
+
+					.close {
+						background-image: url("../images/icon-cross.svg");
+						background-size: 13px;
+						width: 13px;
+						height: 13px;
+						cursor: pointer;
+						opacity: 0;
+						transition: 0.3s;
+
+						&:hover {
+							transform: scale(0.8);
+						}
+					}
+
+					&.sortable-effect {
+						background-image: linear-gradient(
+							to right,
+							hsl(192, 100%, 67%),
+							hsl(280, 87%, 65%)
+						);
+						opacity: 0.65;
+
+						.list-item {
+							color: get-object-prop($colors, light, very-light-gray);
+						}
+					}
+
+					&:hover {
+						.close {
+							opacity: 1;
+						}
+					}
+
+					&[data-status="inactive"] {
+						text-decoration: line-through;
+
+						.circle {
+							background-image: url("../images/icon-check.svg"),
+								get-object-prop($colors, neutral, checked);
+							background-repeat: no-repeat;
+							background-size: 10px, cover;
+							background-position: center;
+							border-color: get-object-prop($colors, light, light-grayish-blue);
+						}
+					}
+				}
+			}
+
+			// sortable end
+
+			// list-desc
+			.list-desc {
+				display: flex;
+				justify-content: space-between;
+				padding: 1rem 1.3rem;
+
+				p,
+				.action-clear {
+					font-size: 0.75rem;
+				}
+
+				// list-filter
+				.desktop {
+					display: none;
+				}
+			}
+
+			// list-desc end
+		}
+
+		// tdo-list end
+
+		.mobile.todo-filter {
+			text-align: center;
+			margin: 1rem 0;
+			padding: 0.9rem 0;
+			box-shadow: 0 0 8px -5px#26283b;
+
+			a {
+				padding: 0.35rem;
+				font-size: 0.85rem;
+			}
+		}
+
+		.todo-filter {
+			a {
+				font-weight: bold;
+				transition: 0.3s ease;
+
+				&:hover {
+					color: get-object-prop($colors, neutral, bright-blue);
+				}
+			}
+		}
+
+		// responsive
+		@include s-laptop {
+			width: 40%;
+			padding: 0 1rem;
+
+			.form {
+				padding: 2rem;
+
+				.circle {
+					width: 25px;
+					height: 25px;
+					left: 1.5rem;
+				}
+
+				form {
+					input {
+						font-size: 1rem;
+						left: 2.5rem;
+						width: calc(100% - 2.5rem);
+					}
+				}
+			}
+
+			.todo-list {
+				margin-top: 1.5rem;
+
+				.sortable-field {
+					.list {
+						.circle {
+							width: 25px;
+							height: 25px;
+						}
+
+						.list-item {
+							font-size: 1.1rem;
+							padding: 0.65rem 0rem 0.65rem 1.5rem;
+						}
+
+						.close {
+							width: 18px;
+							height: 18px;
+							background-size: 18px;
+							margin-right: 0.75rem;
+						}
+					}
+				}
+
+				.list-desc {
+					align-items: center;
+
+					p,
+					a {
+						font-size: 0.9rem !important;
+					}
+
+					.desktop {
+						display: inline-block;
+
+						a {
+							padding: 0 0.5rem;
+						}
+					}
+				}
+			}
+
+			.mobile.todo-filter {
+				display: none;
+			}
+		}
+	}
+
+	// wrapper end
+}
+
+// transition
+.mood-light,
+.mood-dark,
+.form,
+.todo-list,
+.todo-filter,
+.text-light {
+	transition: 0.5s;
+}

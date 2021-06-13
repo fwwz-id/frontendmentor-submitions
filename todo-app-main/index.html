@@ -1,27 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
+
   <title>Frontend Mentor | Todo app</title>
 
   <link rel="stylesheet" href="./css/main.css">
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
-    .attribution { font-size: 11px; text-align: center; margin-top: 1rem;}
-    .attribution a { color: hsl(228, 45%, 44%); }
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+      padding: 0.5rem 0 1rem 0;
+      color: white;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+
+    .attribution p {
+      margin: 1rem 0;
+      color: hsl(233, 14%, 35%);
+    }
+
+    .mood-light .attribution {
+      color: hsl(233, 14%, 35%);
+    }
   </style>
 
 </head>
-<body class="mood-light">
+
+<body class="mood-dark">
 
   <div class="container">
     <div class="background-header"></div>
     <div class="header">
-      <h1 class="app-title text-white">Todo</h1>
+      <h1 class="app-title">Todo</h1>
       <a href="/" class="mood-changer"></a>
     </div>
 
@@ -29,68 +49,46 @@
       <div class="form">
         <div class="circle"></div>
         <form action="">
-          
+
           <input type="text" name="todo-input" placeholder="Create a new todo...">
         </form>
       </div>
-  
+
       <div class="todo-list">
-        <div class="list">
-          <div class="list-item completed">Complete online Javascript course</div>
-          <div class="list-item">Jog around the park 3x</div>
-          <div class="list-item">10 minutes meditation</div>
-          <div class="list-item">Read for 1 hour</div>
-          <div class="list-item">Pick up groceries</div>
-          <div class="list-item">Complete Todo App on Frontend Mentor</div>
-        </div>
+        <div class="sortable-field"></div>
+
         <div class="list-desc">
-          <p class="text-light">5 items left</p>
+          <p class="text-light todo-counter"></p>
+          <div class="desktop todo-filter">
+            <a href="/" class="text-light active" data-show="all">All</a>
+            <a href="/" class="text-light" data-show="active">Active</a>
+            <a href="/" class="text-light" data-show="inactive">Completed</a>
+          </div>
           <a href="/" class="text-light action-clear">Clear Completed</a>
         </div>
       </div>
 
-      <div class="todo-filter">
-        <a href="/" class="active">All</a>
-        <a href="/">Active</a>
-        <a href="/">Completed</a>
+      <div class="mobile todo-filter">
+        <a href="/" class="text-light active" data-show="all">All</a>
+        <a href="/" class="text-light" data-show="active">Active</a>
+        <a href="/" class="text-light" data-show="inactive">Completed</a>
       </div>
+    </div>
+
+    <div class="attribution">
+      <p>Drag for a second and drop to reorder list.</p>
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+      Coded by <a href="https://www.instagram.com/fwwz.id">Fawwaz Abdurrahim</a>.
     </div>
   </div>
 
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.13.0/Sortable.min.js" integrity="sha512-5x7t0fTAVo9dpfbp3WtE2N6bfipUwk7siViWncdDoSz2KwOqVC1N9fDxEOzk0vTThOua/mglfF8NO7uVDLRC8Q==" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.13.0/Sortable.min.js"
+    integrity="sha512-5x7t0fTAVo9dpfbp3WtE2N6bfipUwk7siViWncdDoSz2KwOqVC1N9fDxEOzk0vTThOua/mglfF8NO7uVDLRC8Q=="
+    crossorigin="anonymous"></script>
 
-  <script>
-    let moodBtn = document.querySelector('a.mood-changer'),
-      mood = document.body.classList, list = document.querySelectorAll('.list .list-item');
-
-
-    // Mood conditioner
-    moodBtn.addEventListener('click', function(e){
-      e.preventDefault();
-
-      if(mood.value === 'mood-light'){
-        mood.replace(mood.value, 'mood-dark');
-        moodBtn.style.backgroundImage = 'url("../images/icon-sun.svg")';
-      }else{
-        mood.replace(mood.value, 'mood-light');
-        moodBtn.style.backgroundImage = 'url("../images/icon-moon.svg")';
-      }
-    });
-
-    // list line-througher
-    list.forEach(e => {
-      e.addEventListener('click', function() {
-        e.classList.toggle('completed');
-      });
-    });
-
-
-
-  </script>
+  <!-- <script src="./main.js"></script> -->
+  <script src="./script.js"></script>
 </body>
+
 </html>
