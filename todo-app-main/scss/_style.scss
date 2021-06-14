@@ -94,7 +94,7 @@ body {
 				.todo-list {
 					.list {
 						border-bottom: 1px solid
-							get-object-prop($colors, dark, dark-grayish-blue);
+							get-object-prop($colors, dark, very-dark-grayish-blue);
 
 						.circle {
 							border: 1px solid
@@ -293,6 +293,7 @@ body {
 					}
 
 					&[data-status="inactive"] {
+						font-weight: 700;
 						text-decoration: line-through;
 
 						.circle {

@@ -225,7 +225,7 @@ body.mood-dark .container .wrapper .form input {
   color: #cacde8;
 }
 body.mood-dark .container .wrapper .todo-list .list {
-  border-bottom: 1px solid #777a92;
+  border-bottom: 1px solid #4d5066;
 }
 body.mood-dark .container .wrapper .todo-list .list .circle {
   border: 1px solid #4d5066;
@@ -379,6 +379,7 @@ body .wrapper .todo-list .sortable-field .list:hover .close {
   opacity: 1;
 }
 body .wrapper .todo-list .sortable-field .list[data-status=inactive] {
+  font-weight: 700;
   text-decoration: line-through;
 }
 body .wrapper .todo-list .sortable-field .list[data-status=inactive] .circle {
