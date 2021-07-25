@@ -1,0 +1,155 @@
+@import 'reset-css';
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap');
+
+
+/* html, body, #root, .theme-dark, .theme-light{
+	height: 100%;
+} */
+
+html{
+	scroll-behavior: smooth;
+}
+
+:root{
+	--theme-light-text: hsl(200, 15%, 8%);
+	--theme-light-body: hsl(0, 0%, 98%);
+	--theme-light-component: hsl(0, 0%, 100%);
+	--theme-light-shadows: 1px 1px 5px -1px #8c8b8b;
+	
+	
+	--theme-dark-body: hsl(207, 26%, 17%);
+	--theme-dark-component: hsl(209, 23%, 22%);
+	--theme-dark-shadows: 1px 1px 5px -1px #222222;
+
+	--rad: 0.3rem;
+}
+
+::-webkit-scrollbar{
+	width: 5px;
+	background-color: var(--theme-dark-component);
+}
+::-webkit-scrollbar-thumb{
+	background-color: var(--theme-light-body);
+	border-radius: var(--rad);
+}
+
+body{
+	font-family: 'Nunito sans', sans-serif;
+}
+
+
+body, div, nav{
+	box-sizing: border-box;
+}
+
+
+a{
+	text-decoration: none;
+	color: var(--theme-light-text);
+}
+
+.container{
+    width: 89%;
+    margin: 0 auto;
+	max-width: 1336px;
+}
+
+
+.bold{
+	font-weight: 800;
+}
+
+.semi-bold{
+	font-weight: 600;
+}
+
+.light{
+	font-weight: 300;
+}
+
+.button{
+	cursor: pointer;
+}
+
+.cards, .card-detail{
+	padding-bottom: 1rem;
+}
+
+.theme-light, .theme-light .cards{
+	background-color: var(--theme-light-body);
+	color: var(--theme-light-text);
+}
+
+.theme-light nav, .theme-light .card,
+.theme-light .search-bar, .theme-light .search-bar input,
+.theme-light .dropdown .dropdown-button, 
+.theme-light .dropdown .dropdown-list .dropdown-item,.theme-light .button {
+	background-color: var(--theme-light-component);
+	color: var(--theme-light-text);
+}
+
+
+.theme-light nav, .theme-light .card, .theme-light .dropdown-button, .theme-light .dropdown-list,.theme-light .button, .theme-light .search-bar{
+	box-shadow: var(--theme-light-shadows);
+}
+
+.theme-light svg{
+	fill: var(--theme-light-text);
+}
+
+.theme-light .dropdown .dropdown-list .dropdown-item:hover{
+	background-color: #f1f1f1;
+}
+
+
+
+.theme-dark, .theme-dark .cards{
+	background-color: var(--theme-dark-body);
+	color: var(--theme-light-component);
+}
+
+
+.theme-dark nav, .theme-dark .card, .theme-dark .dropdown-button, .theme-dark .dropdown-list , .theme-dark .button, .theme-dark .search-bar{
+	box-shadow: var(--theme-dark-shadows);
+}
+
+.theme-dark nav, .theme-dark .card,
+.theme-dark .search-bar, .theme-dark .search-bar input,
+.theme-dark .dropdown .dropdown-button, 
+.theme-dark .dropdown .dropdown-list .dropdown-item, .theme-dark .button {
+	background-color: var(--theme-dark-component);
+	color: var(--theme-light-component);
+}
+
+.theme-dark svg{
+	fill: var(--theme-light-component);
+}
+
+.theme-dark .dropdown .dropdown-list .dropdown-item:hover{
+	background-color: var(--theme-dark-body);
+}
+
+
+.card, .control-bar .search-bar, .control-bar .dropdown-button, .button{
+	border-radius: var(--rad);
+}
+
+.card{
+	transition: 0.15s transform, box-shadow;
+}
+.card:hover{
+	transform: translateY(0.25rem);
+	box-shadow: none;
+}
+
+
+.button-to-top{
+	position: fixed;
+    width: 2rem;
+    height: 2rem;
+    transform: rotateZ(-180deg);
+    bottom: 1rem;
+    right: 1rem;
+    display: grid;
+    place-content: center;
+}
