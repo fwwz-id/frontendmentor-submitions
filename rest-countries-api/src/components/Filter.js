@@ -7,6 +7,7 @@ import { DownIndicatorSVG } from "../assets/index";
 function Filter() {
 	const { fullCountries, setDisplayedCountries } = useContext(CountriesContext);
 	const [isOpen, setIsOpen] = useState(false);
+	const [currentRegion, setCurrentRegion] = useState("Filter by Region");
 
 	const regions = ["All", "Africa", "America", "Asia", "Europe", "Oceania"];
 
@@ -28,6 +29,8 @@ function Filter() {
 					)
 			  )
 			: setDisplayedCountries(fullCountries);
+
+		setCurrentRegion(target.charAt(0).toUpperCase() + target.slice(1));
 	};
 
 	function dropdownHandler() {
@@ -35,9 +38,9 @@ function Filter() {
 	}
 
 	return (
-		<div className="dropdown light">
-			<div className="dropdown-button" onClick={dropdownHandler}>
-				Filter by Region
+		<div className="dropdown light" onClick={dropdownHandler}>
+			<div className="dropdown-button">
+				{currentRegion === "All" ? "Filter by Region" : currentRegion}
 				<DownIndicatorSVG />
 			</div>
 			<div className="dropdown-list">
